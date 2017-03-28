@@ -1,0 +1,13 @@
+{
+  "name": "employee-management-api",
+  "version": "1.0.0",
+  "description": "Sample api for the employee management application",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
