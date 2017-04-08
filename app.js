@@ -1,10 +1,12 @@
 let express = require("express");
 let bodyParser = require('body-parser');
+let cors = require('cors');
 let app = express();
 let employeesRepo = require('./employees.js');
 const uuidV1 = require('uuid/v1');
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -25,6 +27,16 @@ app.post("/api/employees", function (req, res) {
     employee.id = uuidV1();
     employeesRepo.employees.push(employee);
     res.json(employee);
+});
+
+app.get('/api/employees/:id', function (req, res) {
+  let id = req.params.id;
+  let foundEmployee = employeesRepo.employees.find(e => e.id === id);
+  if (foundEmployee) {
+    res.json(foundEmployee);
+  } else {
+    res.send(404);
+  }
 });
 
 app.put("/api/employees/:id", function (req, res) {
