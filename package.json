@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Sample api for the employee management application",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jasmine-node app.spec.js"
   },
   "author": "",
   "license": "ISC",
@@ -11,6 +12,10 @@
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+    "request": "^2.81.0",
     "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
   }
 }

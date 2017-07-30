@@ -56,6 +56,10 @@ app.delete("/api/employees/:id", function (req, res) {
   }
 });
 
-app.listen(process.env.PORT || 3000, function () {
+const server = app.listen(process.env.PORT || 3000, function () {
     console.log(`Employee management api is running on port ${process.env.PORT || 3000}`);
 });
+
+exports.closeServer = function(){
+  server.close();
+};
